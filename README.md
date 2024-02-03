@@ -20,3 +20,13 @@ from sklearn.model_selection import train_test_split A_train, A_test, B_train, B
 from sklearn.linear_model import LinearRegression reg = LinearRegression() reg.fit(A_train, B_train) B_Pred = reg.predict(A_test) B_Pred #%%
 
 (d) Calculate the mean_squared error
+S_error = (B_Pred - B_test) ** 2 Sum_Serror = np.sum(S_error) mean_squared_error = Sum_Serror / B_test.size mean_squared_error #%%
+
+(e) Visualize both train and test data using scatter plot.
+import matplotlib.pyplot as plt
+
+Training Data set
+plt.scatter(A_train, B_train) plt.plot(A_train, reg.predict(A_train), color='red') plt.title('Training Set') plt.show()
+
+Testing Data set
+plt.scatter(A_test, B_test) plt.plot(A_test, reg.predict(A_test), color='red') plt.title('Testing Set')
